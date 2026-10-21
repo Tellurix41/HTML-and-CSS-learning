@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <title>Фидбек</title>
+    </head>
+    <body id="feedback-body">
+        <header>
+            <button class="burger-icon" id="menu-toggle" aria-label="Меню" title="Меню"></button>
+
+            <h1>Обратная связь</h1>
+
+            <div id="header-icons">
+                <a class="header-icon home-icon" href="index.html" aria-label="На главную" title="На Главную"></a>
+                <a class="header-icon info-icon" href="about-me.html" aria-label="Обо мне" title="Обо Мне"></a>
+            </div>
+            
+            <div id="header-links">
+                <a href="about-me.html" class="header-links orange-hover">Обо мне</a>
+                <a href="index.html" class="header-links orange-hover">На Главную</a>
+            </div>
+        </header>
+
+        <aside class="sidebar" id="sidebar">
+
+            <div id="sidebar-menu">
+                <h2 id="sidebar-headline">Меню</h2>
+
+                <span class="close-icon" id="menu-close" title="Закрыть Меню">&times;</span>
+                
+                <a class="sidebar-links orange-hover" href="index.html">На Главную</a>
+                <a class="sidebar-links orange-hover" href="about-blog.html">О Блоге</a>
+                <a class="sidebar-links orange-hover" href="about-me.html">Обо мне</a>
+            </div>
+            
+            <div>
+                <p class="quote-line">"Живи, кайфуй, гуляй, играй,</p>
+                <p class="quote-line">Упал - вставай, наглей, ругай,</p>
+                <p class="quote-line">Чужих - роняй, своих - спасай,</p>
+                <p class="quote-line">Пельмени, суп, картошка, чай."</p>
+                <span class="quote-author"> © Стив Жопс</span>
+            </div>
+        </aside>
+
+        <section id="welcome-line">
+            <h2>Есть предложения по улучшению моего блога? Не стесняйтесь и заполните форму ниже!</h2>
+        </section>
+        <form id="inputs" action="#" method="post">
+            <section>
+                <label class="feedback-label" for="name" id="first-feedback-label">Введите своё имя или никнейм:</label>
+                <input type="text" id="name" class="feedback-input" name="name" required placeholder="Имя/Никнейм">
+
+                <label class="feedback-label" for="email">Введите свой email:</label>
+                <input type="email" id="email" class="feedback-input" name="email" required placeholder="Email">
+
+                <label class="feedback-label" for="msg">Введите своё предложение:</label>
+                <textarea id="msg" class="feedback-input" name="message" required placeholder="Предложение"></textarea>
+
+                <button>Отправить</button>
+            </section>
+        </form>
+        <footer>
+            <small>© Т.Н. КосмоФильмоБлог Аштиэмэльовский-КэЭсЭсный. 2077</small>
+        </footer>
+        <script>
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuClose = document.getElementById('menu-close');
+            const sidebar = document.getElementById('sidebar');
+
+            menuToggle.addEventListener('click', (event) => {
+                event.stopPropagation();
+                sidebar.classList.add('active');
+            });
+
+            menuClose.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!sidebar.classList.contains('active')) return;
+                if (sidebar.contains(event.target)) return;
+                if (menuToggle.contains(event.target)) return;
+                sidebar.classList.remove('active');
+            });
+        </script>
+    </body>
+</html>

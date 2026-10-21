@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html lang="ru">     
+    <head>         
+        <meta charset="UTF-8">         
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">         
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+        <title>HTML&CSS Лёрнинг</title>     
+    </head>     
+    <body>         
+        <header>                              
+            <button class="burger-icon" id="menu-toggle" aria-label="Меню" title="Меню"></button>
+
+            <div id="header-headline">
+                <h1>Мой блог про космические фильмы</h1>             
+            </div>    
+            
+            <div id="header-icons">
+                <a class="header-icon feedback-icon" href="feedback.html" aria-label="Обратная Связь" title="Обратная Связь"></a>
+                <a class="header-icon info-icon" href="about-me.html" aria-label="Обо Мне" title="Обо Мне"></a>
+            </div>           
+            
+            <div id="header-links">                 
+                <a href="feedback.html" class="header-links orange-hover">Обратная Связь</a>                 
+                <a href="about-me.html" class="header-links orange-hover">Обо мне</a>             
+            </div>         
+        </header>
+
+        <div id="main">
+            <aside class="sidebar" id="sidebar">
+
+                <div id="sidebar-menu">
+                    <h2 id="sidebar-headline">Меню</h2>
+
+                    <span class="close-icon" id="menu-close" title="Закрыть Меню">&times;</span>
+
+                    <a class="sidebar-links orange-hover" href="about-blog.html">О Блоге</a>
+                    <a class="sidebar-links orange-hover" href="about-me.html">Обо мне</a>
+                    <a class="sidebar-links orange-hover" href="feedback.html">Обратная Связь</a>
+                </div>
+                
+                <div>
+                    <p class="quote-line">"Живи, кайфуй, гуляй, играй,</p>
+                    <p class="quote-line">Упал - вставай, наглей, ругай,</p>
+                    <p class="quote-line">Чужих - роняй, своих - спасай,</p>
+                    <p class="quote-line">Пельмени, суп, картошка, чай."</p>
+                    <span class="quote-author"> © Стив Жопс</span>
+                </div>
+            </aside>
+            <section class="card">
+                <h2>Интерстеллар</h2>
+                <p>
+                    Великолепный фильм.<br>
+                    Сначала показался странноватым, непонятным и, даже, противоречащим самому себе, но потом, после просмотра кучи обзоров, проникнувшись этой картиной по полной, я поменял своё мнение.<br>
+                    Трактовок всей истории, условий, деталей и т.д. может быть невероятное множество, что делает его ещё более занимательнее и загадочнее.<br>
+                    Саундтрек, как я где-то увидел (и с чем полностью согласен), должен быть международным гимном космоса, ведь словами не описать, насколько он офигеннен.<br><br>
+                    Абсолютная Синема. 13/10
+                </p>
+            </section>
+            <section class="card">
+                <h2>Проект "Аве Мария"</h2>
+                <p>
+                    Классный фильм.<br>
+                    Очень эффектный и красивый, видно, что выполнен с любовью к оригиналу, ведь почти полностью следует сюжету книги.<br>
+                    Если мне не изменяет память, то вышло в разы лучше того, что я представлял себе в голове, когда читал роман.<br>
+                    Шутки везде удачные, Райан Гослинг сыграл офигенно.<br><br>
+                    Абсолютная Синема вообщем. 12/10
+                </p>
+            </section>
+        </div>
+        <footer>
+            <small>© Т.Н. КосмоФильмоБлог Аштиэмэльовский-КэЭсЭсный. 2077</small>
+        </footer>
+        <script>
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuClose = document.getElementById('menu-close');
+            const sidebar = document.getElementById('sidebar');
+
+            menuToggle.addEventListener('click', (event) => {
+                event.stopPropagation();
+                sidebar.classList.add('active');
+            });
+
+            menuClose.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!sidebar.classList.contains('active')) return;
+                if (sidebar.contains(event.target)) return;
+                if (menuToggle.contains(event.target)) return;
+                sidebar.classList.remove('active');
+            });
+        </script>
+    </body>
+</html>
